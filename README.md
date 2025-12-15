@@ -26,7 +26,7 @@ GrapheneTrace Edit/
 HOW TO RUN (Visual Studio or Visual Studio Code)
 1. Open GrapheneTrace_FULL.sln in (Visual Studio) or run Program.cs file in Visual Studio Code
 2. Restore packages
-3. Click Run
+3. Click Run or Click Run Project associated with this file
 
 HOW TO RUN (CLI)
 dotnet restore
