@@ -1,0 +1,37 @@
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="/css/login.css" />
+
+<div class="login-card">
+
+    <div class="header-gradient">
+        GrapheneTrace
+    </div>
+
+    <div class="header-subtext">
+        Smart Pressure Monitoring Platform
+    </div>
+
+    <h3 style="text-align:center; margin-bottom: 5px;">Recover Your ID</h3>
+    <p style="text-align:center; margin-top:-5px; color:#444;">Enter your email to find your user ID</p>
+
+    <form method="post">
+
+        <label>Email</label>
+        <div class="input-row">
+            <input type="email" name="email" placeholder="Enter your registered email" required />
+            <span class="input-icon">📧</span>
+        </div>
+
+        <button id="login-btn" style="margin-top:10px;">Recover ID</button>
+
+    </form>
+
+    <div class="links">
+        <a href="/Account/Login">Back to Login</a>
+        <a href="/Account/Register">Create Account</a>
+    </div>
+
+</div>

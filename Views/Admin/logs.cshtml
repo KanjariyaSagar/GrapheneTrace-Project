@@ -1,0 +1,142 @@
+@model IEnumerable<GrapheneTrace.Models.LogEntryViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>System Logs – GrapheneTrace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+    --bg: #eef3ff;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --muted: #6b7280;
+    --blue: #0d6efd;
+    --green: #16a34a;
+    --yellow: #f59e0b;
+    --red: #dc2626;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial;
+    background: var(--bg);
+    color: var(--text-main);
+}
+
+.navbar { height: 78px; background: linear-gradient(90deg, #0d6efd, #1aa7ec); display:flex; align-items:center; justify-content:space-between; padding:0 32px; border-radius:0 0 14px 14px; }
+.nav-left { display:flex; align-items:center; gap:14px; }
+.nav-logo { width:44px; border-radius:50%; }
+.nav-title { color:#fff; font-size:24px; font-weight:700; }
+.nav-menu { display:flex; gap:22px; margin-left:32px; }
+.nav-item { color:#e5edff; cursor:pointer; font-size:15px; text-decoration:none; }
+.nav-item:hover { opacity:.8; }
+.logout-btn { background:#fff; color:#0d6efd; padding:7px 16px; border-radius:999px; text-decoration:none; font-weight:600; }
+
+.container { width:1400px; max-width:95%; margin:30px auto; }
+.title { font-size:28px; font-weight:700; }
+.subtitle { color:var(--muted); margin-top:4px; }
+
+.filter-row { display:flex; gap:16px; align-items:center; margin:20px 0; }
+.filter-item { padding:10px 14px; border:1px solid #d1d5db; border-radius:10px; }
+
+.table-box { background:var(--card-bg); border-radius:14px; padding:16px; box-shadow:0 4px 12px rgba(0,0,0,0.10); }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; padding-bottom:12px; border-bottom:1px solid #e5e7eb; color:var(--muted); }
+td { padding:12px 4px; border-bottom:1px solid #e5e7eb; font-size:14px; }
+
+.tag-info { color:var(--green); font-weight:600; }
+.tag-warning { color:var(--yellow); font-weight:600; }
+.tag-critical { color:var(--red); font-weight:600; }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="nav-left">
+        <img src="/images/logo.png" class="nav-logo">
+        <div class="nav-title">GrapheneTrace</div>
+        <div class="nav-menu">
+            <a href="/Admin/Dashboard" class="nav-item">Dashboard</a>
+            <a href="/Admin/UserManagement" class="nav-item">User Management</a>
+            <a href="/Admin/Settings" class="nav-item">Settings</a>
+            <a href="/Admin/Logs" class="nav-item">Logs</a>
+        </div>
+    </div>
+    <a href="/Account/Logout" class="logout-btn">Logout</a>
+</div>
+
+<div class="container">
+    <div class="title">Login Sessions</div>
+    <div class="subtitle">Recent user login and logout activity.</div>
+
+    <div class="filter-row">
+        <input id="searchBox" class="filter-item" placeholder="Search logs…" onkeyup="filterLogs()">
+        <select id="typeFilter" class="filter-item" onchange="filterLogs()">
+            <option value="All">All Levels</option>
+            <option value="INF">Info</option>
+            <option value="WRN">Warning</option>
+            <option value="ERR">Error</option>
+            <option value="FTL">Fatal</option>
+        </select>
+    </div>
+
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:190px;">Time (UTC)</th>
+                    <th style="width:90px;">Level</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody id="logBody">
+            @if (Model.Any())
+            {
+                foreach (var log in Model)
+                {
+                    var levelClass = log.Level switch
+                    {
+                        "WRN" => "tag-warning",
+                        "ERR" => "tag-critical",
+                        "FTL" => "tag-critical",
+                        _ => "tag-info"
+                    };
+                    <tr data-level="@log.Level" data-text="@log.Raw.ToLowerInvariant()">
+                        <td>@log.Timestamp.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td class="@levelClass">@log.Level</td>
+                        <td>@log.Message</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="3" style="text-align:center; padding:16px; color:var(--muted);">No log entries found.</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function filterLogs() {
+    const search = document.getElementById('searchBox').value.toLowerCase();
+    const level = document.getElementById('typeFilter').value;
+    document.querySelectorAll('#logBody tr').forEach(row => {
+        const text = row.getAttribute('data-text') || '';
+        const rowLevel = row.getAttribute('data-level') || '';
+        const matchesLevel = level === 'All' || rowLevel === level;
+        const matchesText = text.includes(search);
+        row.style.display = matchesLevel && matchesText ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>

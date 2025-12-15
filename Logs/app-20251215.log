@@ -1,0 +1,1195 @@
+2025-12-15 03:34:52.694 +00:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-12-15 03:34:52.724 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-12-15 03:34:52.728 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-12-15 03:34:52.727237+00:00');
+SELECT changes();
+2025-12-15 03:34:52.747 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-12-15 03:34:52.752 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-12-15 03:34:52.754 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-12-15 03:34:52.758 +00:00 [INF] No migrations were applied. The database is already up to date.
+2025-12-15 03:34:52.762 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-12-15 03:34:52.769 +00:00 [INF] User profile is available. Using '/Users/sagar/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-12-15 03:34:52.867 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:34:52.881 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:34:52.881 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:34:52.884 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:34:52.926 +00:00 [INF] Now listening on: http://localhost:5000
+2025-12-15 03:34:52.927 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-15 03:34:52.927 +00:00 [INF] Hosting environment: Development
+2025-12-15 03:34:52.927 +00:00 [INF] Content root path: /Users/sagar/Documents/new/GrapheneTrace Edit
+2025-12-15 03:34:53.746 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-12-15 03:34:53.749 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-12-15 03:34:53.768 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:34:53.771 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:34:53.775 +00:00 [INF] Executing ViewResult, running view Login.
+2025-12-15 03:34:53.810 +00:00 [INF] Executed ViewResult - view Login executed in 33.7025ms.
+2025-12-15 03:34:53.812 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 40.6623ms
+2025-12-15 03:34:53.813 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:34:53.815 +00:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-12-15 03:34:53.819 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 73.406ms
+2025-12-15 03:34:53.893 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/apple-touch-icon-precomposed.png - null null
+2025-12-15 03:34:53.893 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-12-15 03:34:53.893 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/apple-touch-icon.png - null null
+2025-12-15 03:34:53.896 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/apple-touch-icon-precomposed.png - 404 0 null 2.6012ms
+2025-12-15 03:34:53.896 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 404 0 null 2.035ms
+2025-12-15 03:34:53.896 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/apple-touch-icon.png - 404 0 null 2.0307ms
+2025-12-15 03:34:53.896 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/apple-touch-icon-precomposed.png, Response status code: 404
+2025-12-15 03:34:53.896 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/apple-touch-icon.png, Response status code: 404
+2025-12-15 03:34:53.896 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/favicon.ico, Response status code: 404
+2025-12-15 03:35:00.373 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/x-www-form-urlencoded 243
+2025-12-15 03:35:00.377 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:00.387 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:35:00.413 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:35:00.419 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:35:00.473 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-12-15 03:35:00.480 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:00.480 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:35:00.482 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:00.483 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-15 03:35:00.484 +00:00 [INF] Login succeeded for email admin@graphenetrace.com
+2025-12-15 03:35:00.486 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:00.490 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."RoleId"
+FROM "AspNetUserRoles" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."RoleId" = @__p_1
+LIMIT 1
+2025-12-15 03:35:00.493 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/Dashboard.
+2025-12-15 03:35:00.493 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 105.9405ms
+2025-12-15 03:35:00.493 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:00.494 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 302 null null 121.8877ms
+2025-12-15 03:35:00.501 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - null null
+2025-12-15 03:35:00.503 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:35:00.504 +00:00 [INF] Route matched with {action = "Dashboard", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Dashboard() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:00.522 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:00.523 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:00.526 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:00.526 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:00.526 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:00.527 +00:00 [INF] Executing ViewResult, running view Dashboard.
+2025-12-15 03:35:00.532 +00:00 [INF] Executed ViewResult - view Dashboard executed in 4.9602ms.
+2025-12-15 03:35:00.532 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace) in 27.6702ms
+2025-12-15 03:35:00.532 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:35:00.532 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - 200 null text/html; charset=utf-8 30.6878ms
+2025-12-15 03:35:00.542 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:00.543 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.464ms
+2025-12-15 03:35:00.577 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/apple-touch-icon-precomposed.png - null null
+2025-12-15 03:35:00.577 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/apple-touch-icon.png - null null
+2025-12-15 03:35:00.578 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-12-15 03:35:00.578 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/apple-touch-icon.png - 404 0 null 0.4704ms
+2025-12-15 03:35:00.578 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/apple-touch-icon-precomposed.png - 404 0 null 0.7007ms
+2025-12-15 03:35:00.578 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 404 0 null 0.2195ms
+2025-12-15 03:35:00.578 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/apple-touch-icon.png, Response status code: 404
+2025-12-15 03:35:00.578 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/favicon.ico, Response status code: 404
+2025-12-15 03:35:00.578 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/apple-touch-icon-precomposed.png, Response status code: 404
+2025-12-15 03:35:08.512 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:35:08.519 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:08.522 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:08.535 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:08.539 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:35:08.547 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.548 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.551 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:08.551 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.551 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.552 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:08.552 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.553 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:08.553 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:08.553 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:08.554 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:08.554 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:08.555 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:08.557 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:35:08.565 +00:00 [INF] Executed ViewResult - view UserManagement executed in 7.9492ms.
+2025-12-15 03:35:08.565 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 42.5359ms
+2025-12-15 03:35:08.565 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:08.565 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 53.1095ms
+2025-12-15 03:35:08.570 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:08.571 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.5929ms
+2025-12-15 03:35:13.564 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Account/Logout - null null
+2025-12-15 03:35:13.571 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:35:13.573 +00:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:35:13.574 +00:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-12-15 03:35:13.575 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-12-15 03:35:13.575 +00:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-12-15 03:35:13.575 +00:00 [INF] Executing RedirectResult, redirecting to /.
+2025-12-15 03:35:13.575 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace) in 1.8272ms
+2025-12-15 03:35:13.575 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:35:13.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Account/Logout - 302 null null 11.8834ms
+2025-12-15 03:35:13.585 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-12-15 03:35:13.585 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:13.585 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:35:13.585 +00:00 [INF] Executing ViewResult, running view Login.
+2025-12-15 03:35:13.587 +00:00 [INF] Executed ViewResult - view Login executed in 1.5278ms.
+2025-12-15 03:35:13.587 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 1.9791ms
+2025-12-15 03:35:13.587 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:13.587 +00:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-12-15 03:35:13.587 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 2.4949ms
+2025-12-15 03:35:22.082 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/x-www-form-urlencoded 243
+2025-12-15 03:35:22.083 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:22.083 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:35:22.088 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:35:22.089 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:35:22.146 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-12-15 03:35:22.146 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:22.146 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:35:22.146 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:22.146 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-15 03:35:22.146 +00:00 [INF] Login succeeded for email admin@graphenetrace.com
+2025-12-15 03:35:22.146 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:22.147 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."RoleId"
+FROM "AspNetUserRoles" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."RoleId" = @__p_1
+LIMIT 1
+2025-12-15 03:35:22.147 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/Dashboard.
+2025-12-15 03:35:22.147 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 63.7392ms
+2025-12-15 03:35:22.147 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:35:22.147 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 302 null null 65.1046ms
+2025-12-15 03:35:22.152 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - null null
+2025-12-15 03:35:22.153 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:35:22.153 +00:00 [INF] Route matched with {action = "Dashboard", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Dashboard() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:22.153 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:22.153 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:22.154 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:22.154 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:22.154 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:22.154 +00:00 [INF] Executing ViewResult, running view Dashboard.
+2025-12-15 03:35:22.155 +00:00 [INF] Executed ViewResult - view Dashboard executed in 0.5336ms.
+2025-12-15 03:35:22.155 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace) in 1.8915ms
+2025-12-15 03:35:22.155 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:35:22.155 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - 200 null text/html; charset=utf-8 2.4254ms
+2025-12-15 03:35:22.161 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:22.161 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1315ms
+2025-12-15 03:35:23.730 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:35:23.732 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:23.733 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:23.734 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:23.736 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:35:23.737 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.738 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.739 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:23.740 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.741 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.741 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:23.742 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.743 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:23.743 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:23.743 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:23.744 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:23.744 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:23.745 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:23.745 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:35:23.748 +00:00 [INF] Executed ViewResult - view UserManagement executed in 3.1256ms.
+2025-12-15 03:35:23.748 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 15.646ms
+2025-12-15 03:35:23.749 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:23.749 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 18.5102ms
+2025-12-15 03:35:23.751 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:23.752 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.2834ms
+2025-12-15 03:35:26.990 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - application/x-www-form-urlencoded 265
+2025-12-15 03:35:26.992 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:35:26.995 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:27.004 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-12-15 03:35:27.047 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "AspNetUsers"
+WHERE "Id" = @p0 AND "ConcurrencyStamp" = @p1
+RETURNING 1;
+2025-12-15 03:35:27.051 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:35:27.051 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace) in 56.0647ms
+2025-12-15 03:35:27.051 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:35:27.052 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - 302 null null 62.055ms
+2025-12-15 03:35:27.058 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:35:27.059 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:27.059 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:27.059 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:27.059 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:35:27.059 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:27.060 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:27.060 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:27.060 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:27.060 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:27.061 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:27.061 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:27.061 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:27.061 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:27.062 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:27.062 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:27.062 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:35:27.064 +00:00 [INF] Executed ViewResult - view UserManagement executed in 2.0692ms.
+2025-12-15 03:35:27.064 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 5.471ms
+2025-12-15 03:35:27.064 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:27.064 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 5.992ms
+2025-12-15 03:35:27.070 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:27.070 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1066ms
+2025-12-15 03:35:55.309 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/EditUser - application/x-www-form-urlencoded 337
+2025-12-15 03:35:55.311 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.EditUser (GrapheneTrace)'
+2025-12-15 03:35:55.315 +00:00 [INF] Route matched with {action = "EditUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EditUser(System.String, System.String, System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:55.319 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-12-15 03:35:55.320 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:35:55.325 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:35:55.335 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p16='?' (Size = 36), @p0='?' (DbType = Int32), @p1='?' (Size = 36), @p17='?' (Size = 36), @p2='?' (Size = 19), @p3='?' (DbType = Boolean), @p4='?' (Size = 7), @p5='?' (Size = 3), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 19), @p9='?' (Size = 19), @p10='?' (Size = 84), @p11='?', @p12='?' (DbType = Boolean), @p13='?' (Size = 32), @p14='?' (DbType = Boolean), @p15='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "ConcurrencyStamp" = @p1, "Email" = @p2, "EmailConfirmed" = @p3, "FirstName" = @p4, "LastName" = @p5, "LockoutEnabled" = @p6, "LockoutEnd" = @p7, "NormalizedEmail" = @p8, "NormalizedUserName" = @p9, "PasswordHash" = @p10, "PhoneNumber" = @p11, "PhoneNumberConfirmed" = @p12, "SecurityStamp" = @p13, "TwoFactorEnabled" = @p14, "UserName" = @p15
+WHERE "Id" = @p16 AND "ConcurrencyStamp" = @p17
+RETURNING 1;
+2025-12-15 03:35:55.337 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:35:55.337 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.EditUser (GrapheneTrace) in 22.3567ms
+2025-12-15 03:35:55.338 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.EditUser (GrapheneTrace)'
+2025-12-15 03:35:55.338 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/EditUser - 302 null null 28.7751ms
+2025-12-15 03:35:55.344 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:35:55.345 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:55.345 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:35:55.346 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:35:55.346 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:35:55.347 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:55.347 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:55.348 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:55.348 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:55.349 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:55.349 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:35:55.349 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:35:55.350 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:55.350 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:55.350 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:35:55.351 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:35:55.351 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:35:55.352 +00:00 [INF] Executed ViewResult - view UserManagement executed in 0.9425ms.
+2025-12-15 03:35:55.352 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 6.7827ms
+2025-12-15 03:35:55.352 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:35:55.352 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 8.0332ms
+2025-12-15 03:35:55.357 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:35:55.357 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1589ms
+2025-12-15 03:36:04.693 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - application/x-www-form-urlencoded 265
+2025-12-15 03:36:04.696 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:04.696 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:04.698 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-12-15 03:36:04.700 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "AspNetUsers"
+WHERE "Id" = @p0 AND "ConcurrencyStamp" = @p1
+RETURNING 1;
+2025-12-15 03:36:04.701 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:36:04.702 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace) in 5.325ms
+2025-12-15 03:36:04.702 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:04.702 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - 302 null null 9.1478ms
+2025-12-15 03:36:04.709 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:36:04.710 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:04.710 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:04.712 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:36:04.712 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:36:04.713 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:04.713 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:04.714 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:04.714 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:36:04.714 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:04.714 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:36:04.715 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:04.715 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:04.716 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:04.716 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:04.716 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:36:04.718 +00:00 [INF] Executed ViewResult - view UserManagement executed in 1.5741ms.
+2025-12-15 03:36:04.718 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 7.4161ms
+2025-12-15 03:36:04.718 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:04.718 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 9.2043ms
+2025-12-15 03:36:04.724 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:36:04.725 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.4746ms
+2025-12-15 03:36:07.441 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - application/x-www-form-urlencoded 265
+2025-12-15 03:36:07.443 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:07.443 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:07.445 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-12-15 03:36:07.446 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "AspNetUsers"
+WHERE "Id" = @p0 AND "ConcurrencyStamp" = @p1
+RETURNING 1;
+2025-12-15 03:36:07.447 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:36:07.448 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace) in 4.5779ms
+2025-12-15 03:36:07.448 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:07.448 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - 302 null null 6.9685ms
+2025-12-15 03:36:07.453 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:36:07.454 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:07.454 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:07.455 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:36:07.455 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:36:07.456 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:07.457 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:07.457 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:07.457 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:36:07.458 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:07.458 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:07.458 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:07.459 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:07.459 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:36:07.460 +00:00 [INF] Executed ViewResult - view UserManagement executed in 1.5772ms.
+2025-12-15 03:36:07.461 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 6.6841ms
+2025-12-15 03:36:07.461 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:07.461 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 8.1959ms
+2025-12-15 03:36:07.466 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:36:07.467 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.3341ms
+2025-12-15 03:36:45.441 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - application/x-www-form-urlencoded 265
+2025-12-15 03:36:45.443 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:45.443 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:45.446 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-12-15 03:36:45.447 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "AspNetUsers"
+WHERE "Id" = @p0 AND "ConcurrencyStamp" = @p1
+RETURNING 1;
+2025-12-15 03:36:45.448 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:36:45.448 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace) in 4.8499ms
+2025-12-15 03:36:45.448 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.DeleteUser (GrapheneTrace)'
+2025-12-15 03:36:45.449 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/DeleteUser - 302 null null 7.9444ms
+2025-12-15 03:36:45.456 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:36:45.458 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:45.458 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:36:45.459 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:36:45.459 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:36:45.460 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:45.460 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:36:45.461 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:45.461 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:45.462 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:36:45.462 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:36:45.462 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:36:45.464 +00:00 [INF] Executed ViewResult - view UserManagement executed in 1.3285ms.
+2025-12-15 03:36:45.464 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 5.7423ms
+2025-12-15 03:36:45.464 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:36:45.464 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 7.4689ms
+2025-12-15 03:36:45.470 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:36:45.470 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.3645ms
+2025-12-15 03:37:12.305 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/CreateUser - application/x-www-form-urlencoded 337
+2025-12-15 03:37:12.307 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace)'
+2025-12-15 03:37:12.311 +00:00 [INF] Route matched with {action = "CreateUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(System.String, System.String, System.String, System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:37:12.316 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:37:12.316 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:37:12.316 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace) in 5.7911ms
+2025-12-15 03:37:12.317 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace)'
+2025-12-15 03:37:12.317 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/CreateUser - 302 null null 11.557ms
+2025-12-15 03:37:12.323 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:37:12.324 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:37:12.324 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:37:12.325 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:37:12.325 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:37:12.325 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:37:12.325 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:37:12.326 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:37:12.326 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:37:12.326 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:37:12.327 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:37:12.327 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:37:12.329 +00:00 [INF] Executed ViewResult - view UserManagement executed in 1.9192ms.
+2025-12-15 03:37:12.329 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 4.9065ms
+2025-12-15 03:37:12.329 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:37:12.329 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 6.156ms
+2025-12-15 03:37:12.605 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:37:12.605 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1427ms
+2025-12-15 03:38:24.208 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Admin/CreateUser - application/x-www-form-urlencoded 338
+2025-12-15 03:38:24.210 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace)'
+2025-12-15 03:38:24.210 +00:00 [INF] Route matched with {action = "CreateUser", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(System.String, System.String, System.String, System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:38:24.212 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 21)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:38:24.271 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 21)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:38:24.275 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (DbType = Int32), @p2='?' (Size = 36), @p3='?' (Size = 21), @p4='?' (DbType = Boolean), @p5='?' (Size = 7), @p6='?' (Size = 4), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 21), @p10='?' (Size = 21), @p11='?' (Size = 84), @p12='?', @p13='?' (DbType = Boolean), @p14='?' (Size = 32), @p15='?' (DbType = Boolean), @p16='?' (Size = 21)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2025-12-15 03:38:24.275 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:38:24.276 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:38:24.276 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."RoleId"
+FROM "AspNetUserRoles" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."RoleId" = @__p_1
+LIMIT 1
+2025-12-15 03:38:24.277 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:38:24.277 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 21)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:38:24.281 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUserRoles" ("RoleId", "UserId")
+VALUES (@p0, @p1);
+2025-12-15 03:38:24.281 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p16='?' (Size = 36), @p0='?' (DbType = Int32), @p1='?' (Size = 36), @p17='?' (Size = 36), @p2='?' (Size = 21), @p3='?' (DbType = Boolean), @p4='?' (Size = 7), @p5='?' (Size = 4), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 21), @p9='?' (Size = 21), @p10='?' (Size = 84), @p11='?', @p12='?' (DbType = Boolean), @p13='?' (Size = 32), @p14='?' (DbType = Boolean), @p15='?' (Size = 21)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "ConcurrencyStamp" = @p1, "Email" = @p2, "EmailConfirmed" = @p3, "FirstName" = @p4, "LastName" = @p5, "LockoutEnabled" = @p6, "LockoutEnd" = @p7, "NormalizedEmail" = @p8, "NormalizedUserName" = @p9, "PasswordHash" = @p10, "PhoneNumber" = @p11, "PhoneNumberConfirmed" = @p12, "SecurityStamp" = @p13, "TwoFactorEnabled" = @p14, "UserName" = @p15
+WHERE "Id" = @p16 AND "ConcurrencyStamp" = @p17
+RETURNING 1;
+2025-12-15 03:38:24.281 +00:00 [INF] Admin created user student@clinician.com with role Clinician
+2025-12-15 03:38:24.281 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/UserManagement.
+2025-12-15 03:38:24.281 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace) in 71.093ms
+2025-12-15 03:38:24.281 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.CreateUser (GrapheneTrace)'
+2025-12-15 03:38:24.281 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Admin/CreateUser - 302 null null 73.408ms
+2025-12-15 03:38:24.289 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:38:24.289 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:38:24.289 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:38:24.289 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:38:24.289 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:38:24.290 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:38:24.291 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:38:24.291 +00:00 [INF] Executed ViewResult - view UserManagement executed in 0.5522ms.
+2025-12-15 03:38:24.291 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 2.1375ms
+2025-12-15 03:38:24.291 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:38:24.291 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 2.5367ms
+2025-12-15 03:38:24.298 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:38:24.298 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1847ms
+2025-12-15 03:38:26.877 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Account/Logout - null null
+2025-12-15 03:38:26.879 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:38:26.879 +00:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:38:26.880 +00:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-12-15 03:38:26.880 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-12-15 03:38:26.880 +00:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-12-15 03:38:26.880 +00:00 [INF] Executing RedirectResult, redirecting to /.
+2025-12-15 03:38:26.880 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace) in 0.7122ms
+2025-12-15 03:38:26.880 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:38:26.880 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Account/Logout - 302 null null 3.7221ms
+2025-12-15 03:38:26.887 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-12-15 03:38:26.888 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:38:26.888 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:38:26.888 +00:00 [INF] Executing ViewResult, running view Login.
+2025-12-15 03:38:26.889 +00:00 [INF] Executed ViewResult - view Login executed in 1.0566ms.
+2025-12-15 03:38:26.890 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 1.7461ms
+2025-12-15 03:38:26.890 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:38:26.890 +00:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-12-15 03:38:26.890 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 2.3562ms
+2025-12-15 03:39:28.356 +00:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-12-15 03:39:28.390 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-12-15 03:39:28.393 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-12-15 03:39:28.393329+00:00');
+SELECT changes();
+2025-12-15 03:39:28.412 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-12-15 03:39:28.417 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-12-15 03:39:28.419 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-12-15 03:39:28.423 +00:00 [INF] No migrations were applied. The database is already up to date.
+2025-12-15 03:39:28.426 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-12-15 03:39:28.433 +00:00 [INF] User profile is available. Using '/Users/sagar/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-12-15 03:39:28.533 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:39:28.548 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:39:28.548 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:39:28.551 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:39:28.597 +00:00 [INF] Now listening on: http://localhost:5000
+2025-12-15 03:39:28.597 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-15 03:39:28.597 +00:00 [INF] Hosting environment: Development
+2025-12-15 03:39:28.597 +00:00 [INF] Content root path: /Users/sagar/Documents/new/GrapheneTrace Project
+2025-12-15 03:39:29.139 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-12-15 03:39:29.143 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-12-15 03:39:29.154 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:29.157 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:39:29.160 +00:00 [INF] Executing ViewResult, running view Login.
+2025-12-15 03:39:29.192 +00:00 [INF] Executed ViewResult - view Login executed in 31.629ms.
+2025-12-15 03:39:29.194 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 36.6561ms
+2025-12-15 03:39:29.194 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:29.196 +00:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-12-15 03:39:29.198 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 59.9602ms
+2025-12-15 03:39:35.309 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/x-www-form-urlencoded 243
+2025-12-15 03:39:35.313 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:35.324 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:39:35.348 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-15 03:39:35.352 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-15 03:39:35.407 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-12-15 03:39:35.414 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:39:35.415 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-15 03:39:35.417 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:39:35.418 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-15 03:39:35.418 +00:00 [INF] Login succeeded for email admin@graphenetrace.com
+2025-12-15 03:39:35.420 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:39:35.426 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."RoleId"
+FROM "AspNetUserRoles" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."RoleId" = @__p_1
+LIMIT 1
+2025-12-15 03:39:35.430 +00:00 [INF] Executing RedirectResult, redirecting to /Admin/Dashboard.
+2025-12-15 03:39:35.430 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 105.8801ms
+2025-12-15 03:39:35.430 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:35.431 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 302 null null 122.283ms
+2025-12-15 03:39:35.436 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - null null
+2025-12-15 03:39:35.439 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:39:35.440 +00:00 [INF] Route matched with {action = "Dashboard", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Dashboard() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:39:35.457 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:39:35.459 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:39:35.462 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:39:35.462 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:39:35.463 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:39:35.463 +00:00 [INF] Executing ViewResult, running view Dashboard.
+2025-12-15 03:39:35.468 +00:00 [INF] Executed ViewResult - view Dashboard executed in 4.449ms.
+2025-12-15 03:39:35.468 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace) in 27.7003ms
+2025-12-15 03:39:35.468 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.Dashboard (GrapheneTrace)'
+2025-12-15 03:39:35.468 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/Dashboard - 200 null text/html; charset=utf-8 31.7125ms
+2025-12-15 03:39:35.476 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:39:35.477 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.6065ms
+2025-12-15 03:39:36.728 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - null null
+2025-12-15 03:39:36.732 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:39:36.734 +00:00 [INF] Route matched with {action = "UserManagement", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserManagement() on controller GrapheneTrace.Controllers.AdminController (GrapheneTrace).
+2025-12-15 03:39:36.748 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."FirstName", "a"."LastName", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+2025-12-15 03:39:36.754 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."ClinicianUserId", "c"."PatientUserId"
+FROM "ClinicianPatientAssignments" AS "c"
+2025-12-15 03:39:36.760 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:39:36.761 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:39:36.762 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-12-15 03:39:36.766 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ClinicianPatientAssignments" AS "c"
+WHERE "c"."ClinicianUserId" = @__user_Id_0
+2025-12-15 03:39:36.766 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:39:36.766 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:39:36.767 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-15 03:39:36.767 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."Email", "a0"."EmailConfirmed", "a0"."FirstName", "a0"."LastName", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-12-15 03:39:36.769 +00:00 [INF] Executing ViewResult, running view UserManagement.
+2025-12-15 03:39:36.776 +00:00 [INF] Executed ViewResult - view UserManagement executed in 6.648ms.
+2025-12-15 03:39:36.776 +00:00 [INF] Executed action GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace) in 41.3268ms
+2025-12-15 03:39:36.776 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AdminController.UserManagement (GrapheneTrace)'
+2025-12-15 03:39:36.776 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Admin/UserManagement - 200 null text/html; charset=utf-8 48.2373ms
+2025-12-15 03:39:36.778 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-15 03:39:36.778 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 16459 application/javascript; charset=utf-8 0.1127ms
+2025-12-15 03:39:37.960 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Account/Logout - null null
+2025-12-15 03:39:37.972 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:39:37.975 +00:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:39:37.978 +00:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-12-15 03:39:37.978 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-12-15 03:39:37.978 +00:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-12-15 03:39:37.979 +00:00 [INF] Executing RedirectResult, redirecting to /.
+2025-12-15 03:39:37.979 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace) in 3.2122ms
+2025-12-15 03:39:37.979 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Logout (GrapheneTrace)'
+2025-12-15 03:39:37.979 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Account/Logout - 302 null null 19.0364ms
+2025-12-15 03:39:37.987 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-12-15 03:39:37.987 +00:00 [INF] Executing endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:37.987 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller GrapheneTrace.Controllers.AccountController (GrapheneTrace).
+2025-12-15 03:39:37.988 +00:00 [INF] Executing ViewResult, running view Login.
+2025-12-15 03:39:37.990 +00:00 [INF] Executed ViewResult - view Login executed in 1.8808ms.
+2025-12-15 03:39:37.990 +00:00 [INF] Executed action GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace) in 2.3854ms
+2025-12-15 03:39:37.990 +00:00 [INF] Executed endpoint 'GrapheneTrace.Controllers.AccountController.Login (GrapheneTrace)'
+2025-12-15 03:39:37.990 +00:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-12-15 03:39:37.990 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 3.0647ms

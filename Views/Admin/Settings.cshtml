@@ -1,0 +1,343 @@
+@model GrapheneTrace.Models.SettingsViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Settings – Admin | GrapheneTrace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        :root {
+            --bg: #eef3ff;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --muted: #6b7280;
+            --blue: #0d6efd;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            transition: 0.3s ease;
+        }
+        body.dark {
+            --bg: #020617;
+            --card-bg: #0b1220;
+            --text-main: #f1f5f9;
+            --muted: #9ca3af;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 78px;
+            background: linear-gradient(90deg, #0d6efd, #1aa7ec);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            border-radius: 0 0 14px 14px;
+        }
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+        .nav-logo { width: 44px; height: 44px; border-radius: 50%; }
+        .nav-title { color: #fff; font-size: 24px; font-weight: 700; }
+        .nav-menu { display: flex; gap: 22px; margin-left: 32px; }
+        .nav-item { color: #e5edff; cursor: pointer; font-size: 15px; }
+        .nav-item:hover { opacity: 0.8; }
+        .logout-btn {
+            background: #fff;
+            color: #0d6efd;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* PAGE */
+        .container { width: 1400px; max-width: 95%; margin: 30px auto; }
+        .title { font-size: 28px; font-weight: 700; }
+        .subtitle { font-size: 14px; margin-top: 4px; color: var(--muted); }
+
+        .card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 14px;
+            margin-top: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .section-header {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .field {
+            margin: 12px 0;
+        }
+        .field label { font-size: 14px; font-weight: 600; }
+        .field input, .field select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 6px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .save-btn {
+            margin-top: 14px;
+            background: #0d6efd;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        .save-btn:hover { opacity: 0.9; }
+
+        .danger-btn {
+            background: #dc2626;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-left">
+        <img src="/images/logo.png" class="nav-logo" />
+        <div class="nav-title">GrapheneTrace</div>
+
+        <div class="nav-menu">
+            <a href="/Admin/Dashboard" class="nav-item">Dashboard</a>
+            <a href="/Admin/UserManagement" class="nav-item">User Management</a>
+            <a href="/Admin/Settings" class="nav-item"><b>Settings</b></a>
+            <a href="/Admin/Logs" class="nav-item">Logs</a>
+        </div>
+    </div>
+
+    <div class="nav-right">
+        <button id="darkToggle" onclick="toggleDark()" 
+            style="background:rgba(255,255,255,0.22);color:white;padding:7px 14px;border-radius:20px;border:none;">
+            Dark Mode ▾
+        </button>
+        <a class="logout-btn" href="/Account/Logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="title">System Settings</div>
+    <div class="subtitle">Manage system configuration, preferences, security, and admin controls.</div>
+
+    @if (TempData["Error"] != null)
+    {
+        <div style="background:#fecaca;color:#991b1b;padding:10px;border-radius:10px;margin-top:10px;font-weight:600;">@TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div style="background:#bbf7d0;color:#166534;padding:10px;border-radius:10px;margin-top:10px;font-weight:600;">@TempData["Success"]</div>
+    }
+
+
+    <!-- USER PREFERENCES -->
+    <form asp-controller="Admin" asp-action="SaveSettings" method="post">
+        @Html.AntiForgeryToken()
+        <div class="card">
+            <div class="section-header">User Preferences</div>
+
+            <div class="field">
+                <label>Display Name</label>
+                <input name="DisplayName" value="@Model?.DisplayName" placeholder="Admin Name">
+            </div>
+
+            <div class="field">
+                <label>Phone Number</label>
+                <input name="PhoneNumber" value="@Model?.PhoneNumber" placeholder="+44 0000 000000">
+            </div>
+
+            <div class="field">
+                <label>Timezone</label>
+                <select name="Timezone" asp-for="Timezone">
+                    <option>UTC</option>
+                    <option>GMT</option>
+                    <option>Europe/London</option>
+                    <option>Asia/Dubai</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Language</label>
+                <select name="Language" asp-for="Language">
+                    <option>English</option>
+                    <option>French</option>
+                    <option>German</option>
+                </select>
+            </div>
+        </div>
+
+
+    <!-- CHANGE PASSWORD -->
+        <div class="card">
+            <div class="section-header">System Behaviour</div>
+
+            <div class="field">
+                <label>Auto Logout Time</label>
+                <select name="AutoLogout" asp-for="AutoLogout">
+                    <option>15 Minutes</option>
+                    <option>30 Minutes</option>
+                    <option>1 Hour</option>
+                    <option>Never</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Data Retention</label>
+                <select name="DataRetention" asp-for="DataRetention">
+                    <option>7 Days</option>
+                    <option>30 Days</option>
+                    <option>90 Days</option>
+                    <option>1 Year</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Backup Frequency</label>
+                <select name="BackupFrequency" asp-for="BackupFrequency">
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-header">Notifications</div>
+
+            <div class="field">
+                <label>Email Notifications</label>
+                <select name="EmailNotifications" asp-for="EmailNotifications">
+                    <option>Enabled</option>
+                    <option>Disabled</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>SMS Alerts</label>
+                <select name="SmsAlerts" asp-for="SmsAlerts">
+                    <option>On</option>
+                    <option>Off</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Weekly Summary Email</label>
+                <select name="WeeklySummary" asp-for="WeeklySummary">
+                    <option>Enabled</option>
+                    <option>Disabled</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-header">System Security & Maintenance</div>
+
+            <div class="field">
+                <label>Maintenance Mode</label>
+                <select name="MaintenanceMode" asp-for="MaintenanceMode">
+                    <option>Off</option>
+                    <option>On</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Max Login Attempts</label>
+                <select name="MaxLoginAttempts" asp-for="MaxLoginAttempts">
+                    <option>3 Attempts</option>
+                    <option>5 Attempts</option>
+                    <option>Unlimited</option>
+                </select>
+            </div>
+
+            <button class="save-btn" type="submit">
+                Save All Settings
+            </button>
+        </div>
+    </form>
+
+    <!-- CHANGE PASSWORD -->
+    <form asp-controller="Admin" asp-action="ChangePassword" method="post">
+        @Html.AntiForgeryToken()
+        <div class="card">
+            <div class="section-header">Security – Change Password</div>
+
+            <div class="field">
+                <label>Current Password</label>
+                <input type="password" name="CurrentPassword">
+            </div>
+
+            <div class="field">
+                <label>New Password</label>
+                <input type="password" name="NewPassword">
+            </div>
+
+            <div class="field">
+                <label>Confirm New Password</label>
+                <input type="password" name="ConfirmPassword">
+            </div>
+
+            <button class="save-btn" type="submit">
+                Update Password
+            </button>
+        </div>
+    </form>
+
+
+    <!-- SECURITY & MAINTENANCE QUICK ACTIONS -->
+    <div class="card">
+        <div class="section-header">System Security & Maintenance</div>
+        <p style="color:var(--muted); margin-top:-4px;">Use the form above to save settings. Quick actions are placeholders.</p>
+
+        <button class="danger-btn" type="button" onclick="alert('Cache cleared placeholder. Implement backend if required.')">
+            Clear Cache
+        </button>
+
+        <button class="danger-btn" type="button" onclick="alert('System tokens reset placeholder. Implement backend if required.')">
+            Reset System Tokens
+        </button>
+    </div>
+
+</div>
+
+<script>
+/* DARK MODE FUNCTION */
+function applyTheme(m){
+    document.body.classList.toggle("dark", m==="dark");
+    document.getElementById("darkToggle").textContent =
+        m==="dark" ? "Light Mode ▾" : "Dark Mode ▾";
+}
+let t = localStorage.getItem("theme") || "light";
+applyTheme(t);
+
+function toggleDark(){
+    t = t==="light" ? "dark" : "light";
+    localStorage.setItem("theme", t);
+    applyTheme(t);
+}
+</script>
+
+</body>
+</html>

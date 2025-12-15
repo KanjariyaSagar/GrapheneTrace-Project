@@ -1,0 +1,156 @@
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="/css/login.css" />
+
+<style>
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.overlay.show { display: flex; }
+.overlay-card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid #cbd5e1;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 12px auto;
+}
+@@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+
+<div class="login-card">
+
+    <div class="header-gradient">
+        GrapheneTrace
+    </div>
+
+    <div class="header-subtext">
+        Smart Pressure Monitoring Platform
+    </div>
+
+    <!-- ⭐ ADD YOUR LOGO HERE ⭐ -->
+    <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
+        <img src="/images/logo.png"
+             alt="Logo"
+             style="width:70px;height:70px;border-radius:50%;object-fit:cover;">
+    </div>
+    <!-- END LOGO -->
+
+    <h3 style="text-align:center; margin-bottom: 5px;">Welcome Back</h3>
+    <p style="text-align:center; margin-top:-5px; color:#444;">Sign in to access your dashboard</p>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        var errors = ViewData.ModelState.Values
+            .SelectMany(v => v.Errors)
+            .Select(e => e.ErrorMessage)
+            .Where(e => !string.IsNullOrWhiteSpace(e))
+            .ToList();
+
+        if (errors.Any())
+        {
+            <div style="color:#dc2626; text-align:center; margin:8px 0; font-weight:600;">
+                @foreach (var err in errors)
+                {
+                    <div>@err</div>
+                }
+            </div>
+        }
+    }
+
+    @if(ViewBag.Error != null)
+    {
+        <p style="color:red;text-align:center;">@ViewBag.Error</p>
+    }
+
+    <form asp-controller="Account" asp-action="Login" method="post" id="loginForm">
+        @Html.AntiForgeryToken()
+
+        <label>Email</label>
+        <div class="input-row">
+            <input type="email" name="email" placeholder="admin@graphenetrace.com" required />
+            <span class="input-icon">📧</span>
+        </div>
+
+        <label>Password</label>
+        <div class="input-row">
+            <input type="password" name="password" placeholder="Enter password" required />
+            <span class="input-icon">👁️</span>
+        </div>
+
+        <label>Account Type</label>
+        <div class="input-row">
+            <select name="domain" id="domainSelect" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
+                <option value="">Auto-detect</option>
+                <option value="admin">Admin</option>
+                <option value="clinician">Clinician</option>
+                <option value="patient">Patient</option>
+            </select>
+        </div>
+
+        <div style="margin: 10px 0;">
+            <input type="checkbox" /> Remember Me
+        </div>
+
+        <button id="login-btn">Login</button>
+
+    </form>
+
+    <div class="links">
+        <a href="/Account/ForgotPassword">Forgot Password?</a>
+        <a href="/Account/ForgotID">Forgot ID?</a>
+    </div>
+
+</div>
+
+<div class="overlay" id="loginOverlay">
+    <div class="overlay-card">
+        <div class="spinner"></div>
+        <div id="overlayText" style="font-size:15px; font-weight:600; color:#1f2937;">Signing you in…</div>
+        <div style="margin-top:6px; color:#6b7280; font-size:13px;">Please wait while we redirect you.</div>
+    </div>
+</div>
+
+<script>
+const form = document.getElementById('loginForm');
+const overlay = document.getElementById('loginOverlay');
+const overlayText = document.getElementById('overlayText');
+const domainSelect = document.getElementById('domainSelect');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const domain = (domainSelect.value || '').toLowerCase();
+    const message = domain === 'clinician'
+        ? 'Loading your clinician dashboard…'
+        : domain === 'patient'
+            ? 'Loading your patient dashboard…'
+            : domain === 'admin'
+                ? 'Loading your admin dashboard…'
+                : 'Loading your dashboard…';
+
+    overlayText.textContent = message;
+    overlay.classList.add('show');
+
+    // Show overlay for ~2 seconds then submit
+    setTimeout(() => form.submit(), 2000);
+});
+</script>

@@ -1,0 +1,956 @@
+@model GrapheneTrace.Models.DashboardStatsViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>GrapheneTrace Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        :root {
+            --bg: #eef3ff;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --muted: #6b7280;
+            --blue: #0d6efd;
+            --green: #16a34a;
+            --teal: #059669;
+            --red: #dc2626;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark {
+            --bg: #020617;
+            --card-bg: #020617;
+            --text-main: #f9fafb;
+            --muted: #9ca3af;
+        }
+
+        /* NAVBAR ------------------------------------------------------ */
+        .navbar {
+            height: 78px;
+            background: linear-gradient(90deg, #0d6efd, #1aa7ec);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            border-radius: 0 0 14px 14px;
+            box-sizing: border-box;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+        }
+
+        .nav-title {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 22px;
+            margin-left: 32px;
+        }
+
+        .nav-item {
+            color: #e5edff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 12px;
+        }
+
+        .clock {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .dark-toggle {
+            background: rgba(255,255,255,0.22);
+            color: #ffffff;
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+
+        body.dark .dark-toggle {
+            background: #111827;
+        }
+
+        .logout-btn {
+            background: #ffffff;
+            color: #0d6efd;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        body.dark .logout-btn {
+            background: #1f2937;
+            color: #f9fafb;
+        }
+
+        /* MAIN LAYOUT ------------------------------------------------- */
+        .container {
+            width: 1400px;
+            max-width: 95%;
+            margin: 26px auto 40px auto;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            font-size: 13px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .refresh-icon {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* KPI CARDS --------------------------------------------------- */
+        .kpi-grid {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .kpi-box {
+            padding: 22px 22px 20px;
+            border-radius: 16px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0px 10px 20px rgba(15, 23, 42, 0.22);
+            cursor: pointer;
+            transform: translateY(0);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .kpi-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 14px 26px rgba(15, 23, 42, 0.30);
+        }
+
+        .kpi-total {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+        }
+
+        .kpi-clinicians {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+        }
+
+        .kpi-patients {
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+        }
+
+        .kpi-alerts {
+            background: linear-gradient(135deg, #dc2626, #fb7185);
+        }
+
+        .kpi-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .kpi-number {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .kpi-label {
+            margin-top: 6px;
+            font-size: 16px;
+            opacity: 0.98;
+        }
+
+        .kpi-icon {
+            font-size: 32px;
+            opacity: 0.95;
+        }
+
+        /* SUMMARY ROW ------------------------------------------------- */
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 26px;
+            margin-bottom: 10px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .summary-box {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+        }
+
+        .summary-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .summary-label {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* PERFORMANCE + CHART + INSIGHTS LAYOUT ---------------------- */
+        .mid-grid {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 2.1fr 1.2fr;
+            gap: 18px;
+        }
+
+        .perf-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+            padding: 18px 20px 18px;
+            margin-bottom: 18px;
+        }
+
+        .perf-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .perf-bar {
+            width: 100%;
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .perf-fill {
+            height: 100%;
+            border-radius: 999px;
+        }
+
+        .perf-fill-blue { background: #2563eb; width: 78%; }
+        .perf-fill-teal { background: #0ea5e9; width: 52%; }
+        .perf-fill-green { background: #22c55e; width: 89%; }
+
+        .chart-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+            padding: 16px 16px 14px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .chart-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chart-subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .mini-chart {
+            position: relative;
+            height: 120px;
+            margin-top: 6px;
+        }
+
+        /* AI INSIGHTS RIGHT PANEL ------------------------------------ */
+        .insights-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+            padding: 16px 16px 6px;
+            margin-bottom: 18px;
+        }
+
+        .insights-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .insights-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .insights-select {
+            flex: 1;
+            padding: 6px 8px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 12px;
+        }
+
+        .alerts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            font-size: 12px;
+        }
+
+        .alerts-table th,
+        .alerts-table td {
+            padding: 6px 4px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        .alerts-table th {
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .status-critical { color: #dc2626; font-weight: 600; }
+        .status-warning { color: #f59e0b; font-weight: 600; }
+        .status-reviewed { color: #16a34a; font-weight: 600; }
+
+        /* STORAGE / BACKUP PANEL -------------------------------------- */
+        .storage-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .storage-box {
+            background: var(--card-bg);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+
+        .storage-main {
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .storage-accent {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* ALERT BREAKDOWN CARDS -------------------------------------- */
+        .alert-row {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 18px;
+        }
+
+        .alert-box {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 16px 18px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .alert-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(15,23,42,0.22);
+        }
+
+        .alert-label {
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .alert-number {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .alert-critical { color: #dc2626; }
+        .alert-warning { color: #f59e0b; }
+        .alert-resolved { color: #16a34a; }
+        .alert-pending { color: #0d6efd; }
+
+        /* FOOTER ------------------------------------------------------ */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* MODAL ------------------------------------------------------- */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .modal {
+            width: 700px;
+            max-width: 95%;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 20px 18px;
+            box-shadow: 0 18px 40px rgba(15,23,42,0.55);
+            color: #111827;
+        }
+
+        body.dark .modal {
+            background: #020617;
+            color: #f9fafb;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .modal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .modal-table th,
+        .modal-table td {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 6px 4px;
+            text-align: left;
+        }
+
+        .modal-actions button {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            margin-right: 6px;
+        }
+
+        .btn-update { background: #2563eb; color: white; }
+        .btn-delete { background: #dc2626; color: white; }
+        .btn-clear  { background: #f97316; color: white; }
+
+        @@media (max-width: 1024px) {
+            .kpi-grid,
+            .summary-grid,
+            .alert-row {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .mid-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar" id="navbar">
+        <div class="nav-left">
+            <img id="logo" class="nav-logo" src="/images/logo.png" alt="GrapheneTrace Logo" />
+            <div class="nav-title">GrapheneTrace</div>
+
+            <div class="nav-menu">
+                <a class="nav-item" href="/Admin/Dashboard">Dashboard</a>
+                <a class="nav-item" href="/Admin/UserManagement">User Management</a>
+                <a class="nav-item" href="/Admin/Settings">Settings</a>
+                <a class="nav-item" href="/Admin/Logs">Logs</a>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="clock" id="clock">00:00</div>
+            <button id="darkToggle" class="dark-toggle" type="button" onclick="toggleDark()">Dark Mode ▾</button>
+            <a class="logout-btn" href="/Account/Logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="title">Admin Dashboard Overview</div>
+        <div style="font-size:18px;font-weight:600;margin-top:6px;">Welcome (Admin)</div>
+        <div class="subtitle">
+            Last Updated:
+            <span id="timestamp">@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</span>
+            <span class="refresh-icon" onclick="location.reload()">🔄</span>
+        </div>
+
+        <!-- KPI CARDS -->
+        <div class="kpi-grid">
+            <div class="kpi-box kpi-total" data-kpi="total" role="button" tabindex="0" aria-label="View all users">
+                <div class="kpi-row">
+                    <div>
+                        <div class="kpi-number">@Model.TotalUsers</div>
+                        <div class="kpi-label">Total Users</div>
+                    </div>
+                    <div class="kpi-icon">👥</div>
+                </div>
+            </div>
+
+            <div class="kpi-box kpi-clinicians" data-kpi="clinicians" role="button" tabindex="0" aria-label="View clinicians">
+                <div class="kpi-row">
+                    <div>
+                        <div class="kpi-number">@Model.ClinicianCount</div>
+                        <div class="kpi-label">Clinicians</div>
+                    </div>
+                    <div class="kpi-icon">👨‍⚕️</div>
+                </div>
+            </div>
+
+            <div class="kpi-box kpi-patients" data-kpi="patients" role="button" tabindex="0" aria-label="View patients">
+                <div class="kpi-row">
+                    <div>
+                        <div class="kpi-number">@Model.PatientCount</div>
+                        <div class="kpi-label">Patients</div>
+                    </div>
+                    <div class="kpi-icon">🧑‍🦽</div>
+                </div>
+            </div>
+
+            <div class="kpi-box kpi-alerts" data-kpi="alerts">
+                <div class="kpi-row">
+                    <div>
+                        <div class="kpi-number">9</div>
+                        <div class="kpi-label">Active Alerts</div>
+                    </div>
+                    <div class="kpi-icon">⚠️</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYSTEM OVERVIEW SUMMARY -->
+        <div class="section-title">System Overview Summary</div>
+        <div class="summary-grid">
+            <div class="summary-box">
+                <div class="summary-value">28</div>
+                <div class="summary-label">Active Users</div>
+            </div>
+            <div class="summary-box">
+                <div class="summary-value">112</div>
+                <div class="summary-label">Total Alerts Logged</div>
+            </div>
+            <div class="summary-box">
+                <div class="summary-value">4m 15s</div>
+                <div class="summary-label">Avg Query Response Time</div>
+            </div>
+            <div class="summary-box">
+                <div class="summary-value">21/11/2025</div>
+                <div class="summary-label">Database Status: Connected</div>
+            </div>
+        </div>
+
+        <!-- MIDDLE GRID: PERFORMANCE + CHART + INSIGHTS -->
+        <div class="mid-grid">
+            <div>
+                <div class="section-title" style="margin-top: 20px;">System Performance</div>
+                <div class="perf-card">
+                    <div class="perf-label">Server Load</div>
+                    <div class="perf-bar">
+                        <div class="perf-fill perf-fill-blue"></div>
+                    </div>
+
+                    <div class="perf-label">Database Usage</div>
+                    <div class="perf-bar">
+                        <div class="perf-fill perf-fill-teal"></div>
+                    </div>
+
+                    <div class="perf-label">Network Health</div>
+                    <div class="perf-bar">
+                        <div class="perf-fill perf-fill-green"></div>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 6px;">Daily Active Users</div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Daily Active Users</div>
+                        <div class="chart-subtitle">Last 7 days</div>
+                    </div>
+                    <div class="mini-chart">
+                        <svg viewBox="0 0 120 60" preserveAspectRatio="none" style="width:100%;height:100%;">
+                            <polyline
+                                fill="none"
+                                stroke="#2563eb"
+                                stroke-width="3"
+                                points="5,45 20,38 35,42 50,30 65,25 80,18 95,22 110,15" />
+                            <circle cx="5" cy="45" r="2.5" fill="#2563eb" />
+                            <circle cx="20" cy="38" r="2.5" fill="#2563eb" />
+                            <circle cx="35" cy="42" r="2.5" fill="#2563eb" />
+                            <circle cx="50" cy="30" r="2.5" fill="#2563eb" />
+                            <circle cx="65" cy="25" r="2.5" fill="#2563eb" />
+                            <circle cx="80" cy="18" r="2.5" fill="#2563eb" />
+                            <circle cx="95" cy="22" r="2.5" fill="#2563eb" />
+                            <circle cx="110" cy="15" r="2.5" fill="#2563eb" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="insights-card">
+                    <div class="insights-title">AI System Insights</div>
+
+                    <div class="insights-filters">
+                        <select class="insights-select">
+                            <option>Filter</option>
+                            <option>Critical</option>
+                            <option>Warning</option>
+                            <option>Reviewed</option>
+                        </select>
+                        <select class="insights-select">
+                            <option>All</option>
+                            <option>Clinicians</option>
+                            <option>Patients</option>
+                        </select>
+                        <select class="insights-select">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Today</option>
+                        </select>
+                    </div>
+
+                    <div style="font-size:13px;font-weight:600;margin-top:4px;">Recent Alerts</div>
+                    <table class="alerts-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Clinician</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10:22</td>
+                                <td>Dr. Brown</td>
+                                <td class="status-critical">Critical</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr>
+                                <td>09:55</td>
+                                <td>Dr. Sharma</td>
+                                <td class="status-warning">Warning</td>
+                                <td>Reviewed</td>
+                            </tr>
+                            <tr>
+                                <td>09:10</td>
+                                <td>Dr. Patel</td>
+                                <td class="status-reviewed">Reviewed</td>
+                                <td>Reviewed</td>
+                            </tr>
+                            <tr>
+                                <td>08:40</td>
+                                <td>Dr. Iyer</td>
+                                <td class="status-critical">Critical</td>
+                                <td>Reviewed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="insights-card">
+                    <div class="insights-title">System Storage & Backup</div>
+
+                    <div class="storage-grid">
+                        <div class="storage-box">
+                            <div class="storage-main">54 GB</div>
+                            <div>File Storage Used</div>
+                        </div>
+                        <div class="storage-box">
+                            <div class="storage-main storage-accent">Success</div>
+                            <div>Last Backup Status</div>
+                        </div>
+                        <div class="storage-box">
+                            <div class="storage-main storage-accent">Success</div>
+                            <div>Backup System</div>
+                        </div>
+                        <div class="storage-box">
+                            <div class="storage-main">21/11/2025</div>
+                            <div>Last Backup Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALERT BREAKDOWN -->
+        <div class="section-title">Alert Breakdown</div>
+        <div class="alert-row">
+            <div class="alert-box" data-kpi="criticalAlerts">
+                <div class="alert-label">Critical Alerts Today</div>
+                <div class="alert-number alert-critical">5</div>
+            </div>
+            <div class="alert-box" data-kpi="warningAlerts">
+                <div class="alert-label">Warning Alerts Today</div>
+                <div class="alert-number alert-warning">3</div>
+            </div>
+            <div class="alert-box" data-kpi="resolvedAlerts">
+                <div class="alert-label">Resolved Alerts</div>
+                <div class="alert-number alert-resolved">18</div>
+            </div>
+            <div class="alert-box" data-kpi="pendingAlerts">
+                <div class="alert-label">Pending Review Alerts</div>
+                <div class="alert-number alert-pending">4</div>
+            </div>
+        </div>
+
+        <footer>© 2025 GrapheneTrace • All Rights Reserved</footer>
+    </div>
+
+    <!-- KPI MODAL -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Details</div>
+                <button class="modal-close" type="button" onclick="closeModal()">×</button>
+            </div>
+
+            <table class="modal-table" id="modalTable">
+                <!-- rows filled by JS -->
+            </table>
+        </div>
+    </div>
+
+    <script>
+    /* CLOCK ---------------------------------------------------- */
+    function updateClock() {
+        const now = new Date();
+        document.getElementById("clock").innerText =
+            now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    /* DARK MODE + PERSISTENCE --------------------------------- */
+    const THEME_KEY = "graphenetrace-theme";
+
+    function applyTheme(mode) {
+        const body = document.body;
+        const logo = document.getElementById("logo");
+        const toggle = document.getElementById("darkToggle");
+
+        if (mode === "dark") {
+            body.classList.add("dark");
+            logo.src = "/images/logo-dark.png";
+            if (toggle) toggle.textContent = "Light Mode ▾";
+        } else {
+            body.classList.remove("dark");
+            logo.src = "/images/logo.png";
+            if (toggle) toggle.textContent = "Dark Mode ▾";
+        }
+    }
+
+    function toggleDark() {
+        const current = document.body.classList.contains("dark") ? "dark" : "light";
+        const next = current === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+    }
+
+    (function initTheme() {
+        const saved = localStorage.getItem(THEME_KEY) || "light";
+        applyTheme(saved);
+    })();
+        },
+        resolvedAlerts: {
+            title: "Resolved Alerts (" + RESOLVED_ROWS.length + ")",
+            header: ["Time", "Patient", "Clinician", "Resolution"],
+            rows: RESOLVED_ROWS
+        },
+        pendingAlerts: {
+            title: "Pending Review Alerts (" + PENDING_ROWS.length + ")",
+            header: ["Time", "Patient", "Clinician", "Type", "Status"],
+            rows: PENDING_ROWS
+        }
+    };
+
+    /* ===========================
+       MODAL SYSTEM
+       =========================== */
+
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalTable = document.getElementById("modalTable");
+
+    function closeModal() {
+        modalBackdrop.classList.remove("show");
+    }
+
+    modalBackdrop.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) closeModal();
+    });
+
+    async function loadKpi(type) {
+        try {
+            const url = `/Admin/KpiDetails?type=${encodeURIComponent(type)}`;
+            console.debug('Loading KPI:', type, url);
+            // Open modal immediately with a loading state
+            modalTitle.textContent = type === 'clinicians' ? 'Clinicians' : type === 'patients' ? 'Patients' : 'All Users';
+            modalTable.innerHTML = '<thead><tr><th>Loading</th></tr></thead><tbody><tr><td>Please wait…</td></tr></tbody>';
+            modalBackdrop.classList.add('show');
+            const res = await fetch(url, { credentials: 'same-origin', headers: { 'Accept': 'application/json' } });
+            if (!res.ok) {
+                modalTable.innerHTML = '<thead><tr><th>Error</th></tr></thead><tbody><tr><td>Failed to load data (' + res.status + ').</td></tr></tbody>';
+                openModal('Error');
+                return;
+            }
+            const data = await res.json();
+            console.debug('KPI data:', data);
+
+        // Build table headers based on type
+        let headers;
+        if (type === 'clinicians') {
+            headers = ['Email', 'User Name', 'Role', 'Patient Count'];
+        } else if (type === 'patients') {
+            headers = ['Email', 'User Name', 'Role', 'Assigned Clinician'];
+        } else {
+            headers = ['Email', 'User Name', 'Role'];
+        }
+
+        const thead = `<thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>`;
+
+        const rows = (data.items || []).map(item => {
+            if (type === 'clinicians') {
+                return `<tr><td>${item.email ?? ''}</td><td>${item.userName ?? ''}</td><td>${item.role ?? ''}</td><td>${item.patientCount ?? 0}</td></tr>`;
+            } else if (type === 'patients') {
+                return `<tr><td>${item.email ?? ''}</td><td>${item.userName ?? ''}</td><td>${item.role ?? ''}</td><td>${item.assignedClinicianEmail ?? '-'}</td></tr>`;
+            } else {
+                return `<tr><td>${item.email ?? ''}</td><td>${item.userName ?? ''}</td><td>${item.role ?? ''}</td></tr>`;
+            }
+        }).join('');
+
+        const tbody = `<tbody>${rows && rows.length ? rows : '<tr><td colspan=\"4\">No data</td></tr>'}</tbody>`;
+        modalTable.innerHTML = thead + tbody;
+        // Modal already open from loading state
+        } catch (err) {
+            console.error('KPI load error:', err);
+            modalTable.innerHTML = '<thead><tr><th>Error</th></tr></thead><tbody><tr><td>' + (err?.message || 'Unknown error') + '</td></tr></tbody>';
+            openModal('Error');
+        }
+    }
+
+    // Attach handlers after DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.kpi-box');
+        if (!cards || cards.length === 0) {
+            console.warn('KPI cards not found');
+            return;
+        }
+        cards.forEach(box => {
+            box.addEventListener('click', () => {
+                const type = box.getAttribute('data-kpi');
+                if (type === 'total') loadKpi('total');
+                else if (type === 'clinicians') loadKpi('clinicians');
+                else if (type === 'patients') loadKpi('patients');
+                else if (type === 'alerts') {
+                    // Placeholder until alerts are wired to data source
+                    modalTable.innerHTML = '<thead><tr><th>Message</th></tr></thead><tbody><tr><td>Connect alerts to your data source to view details here.</td></tr></tbody>';
+                    openModal('Active Alerts');
+                }
+            });
+
+            // Keyboard accessibility: Enter/Space open modal
+            box.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    box.click();
+                }
+            });
+        });
+        console.debug('KPI handlers attached:', cards.length);
+    });
+    </script>
+</body>
+</html>

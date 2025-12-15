@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0575E6, #00F260);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 450px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 18px;
+    padding: 30px 35px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    animation: fadeIn 0.8s ease;
+}
+
+.header-gradient {
+    width: 100%;
+    height: 75px;
+    border-radius: 14px;
+    margin-top: -20px;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #0b74e5, #19c163);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.header-subtext {
+    text-align: center;
+    font-size: 14px;
+    margin-top: -18px;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.input-row {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-row input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.input-icon {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+#login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: linear-gradient(90deg, #0b74e5, #19c163);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.links {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.links a {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #0b74e5;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

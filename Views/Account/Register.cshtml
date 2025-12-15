@@ -1,0 +1,49 @@
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="/css/login.css" />
+
+<div class="login-card">
+
+    <div class="header-gradient">
+        GrapheneTrace
+    </div>
+
+    <div class="header-subtext">
+        Smart Pressure Monitoring Platform
+    </div>
+
+    <h3 style="text-align:center; margin-bottom: 5px;">Create New Account</h3>
+    <p style="text-align:center; margin-top:-5px; color:#444;">Register a new user</p>
+
+    <form method="post">
+
+        <label>Full Name</label>
+        <div class="input-row">
+            <input type="text" name="fullName" placeholder="Enter full name" required />
+            <span class="input-icon">👤</span>
+        </div>
+
+        <label>Email</label>
+        <div class="input-row">
+            <input type="email" name="email" placeholder="Enter email" required />
+            <span class="input-icon">📧</span>
+        </div>
+
+        <label>Password</label>
+        <div class="input-row">
+            <input type="password" name="password" placeholder="Enter password" required />
+            <span class="input-icon">🔒</span>
+        </div>
+
+        <button id="login-btn" style="margin-top:10px;">Register</button>
+
+    </form>
+
+    <div class="links">
+        <a href="/Account/Login">Back to Login</a>
+        <a href="/Account/ForgotPassword">Forgot Password?</a>
+    </div>
+
+</div>

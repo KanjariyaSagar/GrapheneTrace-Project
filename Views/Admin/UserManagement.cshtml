@@ -1,0 +1,406 @@
+@model IEnumerable<GrapheneTrace.Models.AdminUserViewModel>
+@{
+    Layout = null;
+    var roles = new[] {"Admin", "Clinician", "Patient"};
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Management – GrapheneTrace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        :root {
+            --bg: #eef3ff;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --muted: #6b7280;
+        }
+
+        body.dark {
+            --bg: #020617;
+            --card-bg: #0b1220;
+            --text-main: #f1f5f9;
+            --muted: #9ca3af;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text-main);
+            transition: 0.3s;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 78px;
+            background: linear-gradient(90deg, #0d6efd, #1aa7ec);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 32px;
+            border-radius: 0 0 14px 14px;
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+        .nav-logo { width: 44px; height: 44px; border-radius: 50%; }
+        .nav-title { color: white; font-size: 24px; font-weight: 700; }
+
+        .nav-menu {
+            display: flex;
+            gap: 22px;
+            margin-left: 32px;
+        }
+        .nav-item { color: white; cursor: pointer; font-size: 15px; text-decoration:none; }
+        .nav-item:hover { opacity: 0.8; }
+
+        .logout-btn {
+            padding: 7px 16px;
+            background: white;
+            color: #0d6efd;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* PAGE */
+        .container {
+            width: 1400px;
+            max-width: 95%;
+            margin: 32px auto;
+        }
+
+        .title { font-size: 28px; font-weight: 700; }
+        .subtitle { color: var(--muted); margin-top: 4px; }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 22px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-add {
+            background: #16a34a;
+            padding: 10px 16px;
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cancel { background: #6b7280; padding: 10px 16px; color:white; border:none; border-radius:10px; cursor:pointer; }
+
+        /* TABLE */
+        .table-box {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+        th {
+            color: var(--muted);
+            border-bottom: 1px solid #e5e7eb;
+            text-align:left;
+            padding-bottom: 12px;
+        }
+
+        td {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 14px 6px;
+        }
+
+        .btn-update, .btn-delete {
+            padding: 6px 12px;
+            font-size: 12px;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-update { background: #2563eb; }
+        .btn-delete { background: #dc2626; }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 50;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show { display: flex; }
+
+        .modal-content {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-content h3 { margin-top: 0; }
+
+        .modal-field { margin: 12px 0; }
+        .modal-field label { display: block; margin-bottom: 4px; font-weight: 600; }
+        .modal-field input, .modal-field select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .modal-actions { margin-top: 20px; display:flex; gap:10px; }
+        .modal-actions button { flex: 1; padding: 10px; }
+
+        .alert { padding: 12px; margin: 12px 0; border-radius: 8px; font-weight: 600; }
+        .alert-error { background: #fecaca; color: #dc2626; }
+        .alert-success { background: #bbf7d0; color: #16a34a; }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-left">
+        <img src="/images/logo.png" class="nav-logo" />
+        <div class="nav-title">GrapheneTrace</div>
+
+        <div class="nav-menu">
+            <a href="/Admin/Dashboard" class="nav-item">Dashboard</a>
+            <a href="/Admin/UserManagement" class="nav-item">User Management</a>
+            <a href="/Admin/Settings" class="nav-item">Settings</a>
+            <a href="/Admin/Logs" class="nav-item">Logs</a>
+        </div>
+    </div>
+
+    <a class="logout-btn" href="/Account/Logout">Logout</a>
+</div>
+
+<div class="container">
+
+    <div class="title">User Management</div>
+    <div class="subtitle">Manage all users across the platform.</div>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-error">@TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <div class="top-row">
+        <button class="btn-add" onclick="openCreateForm()">+ Add User</button>
+    </div>
+
+    <!-- CREATE USER MODAL -->
+    <div id="createModal" class="modal">
+        <div class="modal-content">
+            <h3>Create New User</h3>
+            <form asp-controller="Admin" asp-action="CreateUser" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-field">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" placeholder="John" required />
+                </div>
+                <div class="modal-field">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" placeholder="Doe" required />
+                </div>
+                <div class="modal-field">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="user@example.com" required />
+                </div>
+                <div class="modal-field">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phoneNumber" placeholder="+1 (555) 123-4567" />
+                </div>
+                <div class="modal-field">
+                    <label>Password (min 6 chars, 1 uppercase, 1 lowercase, 1 digit)</label>
+                    <input type="password" name="password" placeholder="Enter secure password" required />
+                </div>
+                <div class="modal-field">
+                    <label>Role</label>
+                    <select name="role" required>
+                        <option value="">-- Select Role --</option>
+                        @foreach (var r in roles) { <option value="@r">@r</option> }
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-add" type="submit">Create User</button>
+                    <button class="btn-cancel" type="button" onclick="closeCreateForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT USER MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Update User</h3>
+            <form asp-controller="Admin" asp-action="EditUser" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" id="editId" />
+                <div class="modal-field">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" id="editFirstName" />
+                </div>
+                <div class="modal-field">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" id="editLastName" />
+                </div>
+                <div class="modal-field">
+                    <label>Email</label>
+                    <input type="email" name="email" id="editEmail" required />
+                </div>
+                <div class="modal-field">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phoneNumber" id="editPhoneNumber" />
+                </div>
+                <div class="modal-field">
+                    <label>Role</label>
+                    <input type="text" id="editRole" disabled />
+                </div>
+                <div class="modal-field" id="patientCountField" style="display:none;">
+                    <label>Assigned Patients</label>
+                    <input type="text" id="editPatientCount" disabled />
+                </div>
+                <div class="modal-field" id="assignedClinicianField" style="display:none;">
+                    <label>Assigned Clinician</label>
+                    <input type="text" id="editAssignedClinician" disabled />
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-add" type="submit">Update User</button>
+                    <button class="btn-cancel" type="button" onclick="closeEditForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ASSIGN ROLE MODAL -->
+    <div id="roleModal" class="modal">
+        <div class="modal-content">
+            <h3>Assign Role</h3>
+            <form asp-controller="Admin" asp-action="AssignRole" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" id="roleId" />
+                <div class="modal-field">
+                    <label>Select Role</label>
+                    <select name="role" id="roleSelect" required>
+                        <option value="">-- Choose Role --</option>
+                        @foreach (var r in roles) { <option value="@r">@r</option> }
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-add" type="submit">Set Role</button>
+                    <button class="btn-cancel" type="button" onclick="closeRoleForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- USER TABLE -->
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if (Model.Any())
+            {
+                int rowNum = 1;
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@(rowNum++)</td>
+                        <td>@(u.FirstName ?? "-")</td>
+                        <td>@(u.LastName ?? "-")</td>
+                        <td>@u.Email</td>
+                        <td>@(u.PhoneNumber ?? "-")</td>
+                        <td><strong>@(string.IsNullOrEmpty(u.Role) ? "(none)" : u.Role)</strong></td>
+                        <td style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+                            <button class="btn-update" type="button" onclick="openEditForm('@u.Id', '@u.FirstName', '@u.LastName', '@u.Email', '@u.PhoneNumber', '@u.Role', '@u.PatientCount', '@u.AssignedClinicianEmail')" style="padding:6px 10px;">Update</button>
+                            <form asp-controller="Admin" asp-action="DeleteUser" method="post" style="display:inline;" onsubmit="return confirm('Delete @u.Email permanently?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@u.Id" />
+                                <button class="btn-delete" type="submit" style="padding:6px 10px;">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" style="text-align:center; padding:20px; color:var(--muted);">No users found. Create one to get started.</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function openCreateForm() {
+    document.getElementById('createModal').classList.add('show');
+}
+function closeCreateForm() {
+    document.getElementById('createModal').classList.remove('show');
+}
+function openEditForm(id, firstName, lastName, email, phoneNumber, role, patientCount, assignedClinician) {
+    document.getElementById('editId').value = id;
+    document.getElementById('editFirstName').value = firstName || '';
+    document.getElementById('editLastName').value = lastName || '';
+    document.getElementById('editEmail').value = email;
+    document.getElementById('editPhoneNumber').value = phoneNumber || '';
+    document.getElementById('editRole').value = role || '';
+    document.getElementById('editPatientCount').value = patientCount || '';
+    document.getElementById('editAssignedClinician').value = assignedClinician || '';
+    
+    // Show/hide role-specific fields
+    if (role === 'Clinician') {
+        document.getElementById('patientCountField').style.display = 'block';
+        document.getElementById('assignedClinicianField').style.display = 'none';
+    } else if (role === 'Patient') {
+        document.getElementById('patientCountField').style.display = 'none';
+        document.getElementById('assignedClinicianField').style.display = 'block';
+    } else {
+        document.getElementById('patientCountField').style.display = 'none';
+        document.getElementById('assignedClinicianField').style.display = 'none';
+    }
+    
+    document.getElementById('editModal').classList.add('show');
+}
+function closeEditForm() {
+    document.getElementById('editModal').classList.remove('show');
+}
+function openRoleForm(id, currentRole) {
+    document.getElementById('roleId').value = id;
+    document.getElementById('roleSelect').value = currentRole;
+    document.getElementById('roleModal').classList.add('show');
+}
+function closeRoleForm() {
+    document.getElementById('roleModal').classList.remove('show');
+}
+</script>
+
+</body>
+</html>
